@@ -13,12 +13,14 @@
         Автор: {{ post.author.get_full_name }}
       </li>
       <li>
-        Дата публикации: 28 июля 1854
+        Дата публикации: {{ post.pub_date }}
       </li>
     </ul> 
     <p>{{ post.text }}</p>
   </article>
-  <hr>
+  {% if not forloop.last %} 
+    <hr>
+  {% endif %}
   {% endfor %}
 </div>
 {% endblock %}

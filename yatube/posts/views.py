@@ -4,9 +4,9 @@ from .models import Post, Group
 
 def index(request):
     template = 'posts/index.html'
-    text = 'Это главная страница проекта Yatube'
+    posts = Post.objects.all()
     context = {
-        'text': text,
+        'posts': posts,
     }
     return render(request, template, context)
 
