@@ -1,4 +1,24 @@
 {% extends 'base.html' %}
 {% block title %}
-  Лев Толстой – зеркало русской революции.
+  {{ group.title }}
+{% endblock %}
+{% block content %}
+<div class="container">
+  <h1>{{ group.title }}</h1>
+  <p>{{ group.description }}</p>
+  {% for post in posts %}
+  <article>
+    <ul>
+      <li>
+        Автор: {{ post.author.get_full_name }}
+      </li>
+      <li>
+        Дата публикации: 28 июля 1854
+      </li>
+    </ul> 
+    <p>{{ post.text }}</p>
+  </article>
+  <hr>
+  {% endfor %}
+</div>
 {% endblock %}
